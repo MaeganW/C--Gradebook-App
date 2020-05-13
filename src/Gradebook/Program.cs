@@ -13,9 +13,9 @@ namespace Gradebook
             book.AddGrade(75.5);
 
             var statistics = book.GetStatistics();
-            Console.WriteLine($"The highest grade is {statistics.highestGrade}");
-            Console.WriteLine($"The lowest grade is {statistics.lowestGrade}");
-            Console.WriteLine($"The average grade is {statistics.averageGrade:N1}");
+            Console.WriteLine($"The highest grade is {statistics.HighestGrade}");
+            Console.WriteLine($"The lowest grade is {statistics.LowestGrade}");
+            Console.WriteLine($"The average grade is {statistics.AverageGrade:N1}");
 
             // misc practice fns
 

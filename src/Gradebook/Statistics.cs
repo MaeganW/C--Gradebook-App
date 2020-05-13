@@ -2,8 +2,8 @@ namespace Gradebook
 {
     public class Statistics
     {
-        public double averageGrade;
-        public double highestGrade;
-        public double lowestGrade;
+        public double AverageGrade;
+        public double HighestGrade;
+        public double LowestGrade;
     }
 }

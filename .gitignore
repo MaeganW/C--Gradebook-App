@@ -1,0 +1,12 @@
+.idea
+.idea/*
+.vscode
+.vscode/*
+
+bin
+src/Gradebook/obj
+src/Gradebook/obj/*
+test/Gradebook.Tests/bin
+test/Gradebook.Tests/bin/*
+test/Gradebook.Tests/obj
+test/Gradebook.Tests/obj/*

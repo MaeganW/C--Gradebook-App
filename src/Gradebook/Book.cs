@@ -17,26 +17,26 @@ namespace Gradebook
 
         public double GetHighestGrade()
         {
-            var highestGrade = double.MinValue;
+            var HighestGrade = double.MinValue;
             foreach (var grade in this.grades)
             {
-                // if (grade > highestGrade)
+                // if (grade > HighestGrade)
                 // {
-                //     highestGrade = grade;
+                //     HighestGrade = grade;
                 // }
-                highestGrade = Math.Max(grade, highestGrade);
+                HighestGrade = Math.Max(grade, HighestGrade);
             }
-            return highestGrade;
+            return HighestGrade;
         }
 
         public double GetLowestGrade()
         {
-            var lowestGrade = double.MaxValue;
+            var LowestGrade = double.MaxValue;
             foreach (var grade in this.grades)
             {
-                lowestGrade = Math.Min(grade, lowestGrade);
+                LowestGrade = Math.Min(grade, LowestGrade);
             }
-            return lowestGrade;
+            return LowestGrade;
         }
 
         public double GetAverageGrade()
@@ -52,9 +52,9 @@ namespace Gradebook
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            statistics.averageGrade = this.GetAverageGrade();
-            statistics.highestGrade = this.GetHighestGrade();
-            statistics.lowestGrade = this.GetLowestGrade();
+            statistics.AverageGrade = this.GetAverageGrade();
+            statistics.HighestGrade = this.GetHighestGrade();
+            statistics.LowestGrade = this.GetLowestGrade();
 
             return statistics;
         }
