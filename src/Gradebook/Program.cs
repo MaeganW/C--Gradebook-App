@@ -52,6 +52,10 @@ namespace Gradebook
             var average = result2 / length;
             Console.WriteLine($"Average of grades2: {average}");
 
+            result2 /= grades2.Count; // another syntax to use division - similar to +=
+            Console.WriteLine($"Average of grades2: {result2}");
+            Console.WriteLine($"Average of grades2: {result2:N1}"); // using formatting string for the double
+
             // if/else condition and string interpolation
 
             if (args.Length > 0)
