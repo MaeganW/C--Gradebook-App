@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace Gradebook
 {
-    class Book
+    public class Book
     {
         public Book(string name)
         {
             grades = new List<double>();
             this.name = name; // normally "this" is implicit, but because "name" is a param, we need to be explicit
         }
-        public void addGrade(double grade)
+        public void AddGrade(double grade)
         {
             grades.Add(grade); // "this" in this.grades is implicit
         }
 
-        public double getHighestGrade()
+        public double GetHighestGrade()
         {
             var highestGrade = double.MinValue;
             foreach (var grade in this.grades)
@@ -29,7 +29,7 @@ namespace Gradebook
             return highestGrade;
         }
 
-        public double getLowestGrade()
+        public double GetLowestGrade()
         {
             var lowestGrade = double.MaxValue;
             foreach (var grade in this.grades)
@@ -39,7 +39,7 @@ namespace Gradebook
             return lowestGrade;
         }
 
-        public double getAverageGrade()
+        public double GetAverageGrade()
         {
             var average = 0.0;
             foreach (var grade in this.grades)
@@ -49,11 +49,14 @@ namespace Gradebook
             return average /= this.grades.Count;
         }
 
-        public void showStatistics()
+        public Statistics GetStatistics()
         {
-            Console.WriteLine($"The highest grade is {this.getHighestGrade()}");
-            Console.WriteLine($"The lowest grade is {this.getLowestGrade()}");
-            Console.WriteLine($"The average grade is {this.getAverageGrade():N1}");
+            var statistics = new Statistics();
+            statistics.averageGrade = this.GetAverageGrade();
+            statistics.highestGrade = this.GetHighestGrade();
+            statistics.lowestGrade = this.GetLowestGrade();
+
+            return statistics;
         }
 
         private List<double> grades; // this is a field on the class/type - cannot be implicitly typed

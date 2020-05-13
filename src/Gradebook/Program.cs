@@ -8,11 +8,14 @@ namespace Gradebook
         static void Main(string[] args)
         {
             var book = new Book("Maegan's Grade Book");
-            book.addGrade(45.0);
-            book.addGrade(90.0);
-            book.addGrade(75.5);
+            book.AddGrade(45.0);
+            book.AddGrade(90.0);
+            book.AddGrade(75.5);
 
-            book.showStatistics();
+            var statistics = book.GetStatistics();
+            Console.WriteLine($"The highest grade is {statistics.highestGrade}");
+            Console.WriteLine($"The lowest grade is {statistics.lowestGrade}");
+            Console.WriteLine($"The average grade is {statistics.averageGrade:N1}");
 
             // misc practice fns
 
