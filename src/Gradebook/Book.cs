@@ -16,6 +16,10 @@ namespace Gradebook
             {
                 grades.Add(grade); // "this" in this.grades is implicit
             }
+            else
+            {
+                throw new ArgumentException($"Invalid {nameof(grade)}");
+            }
         }
 
         public double GetHighestGrade()
