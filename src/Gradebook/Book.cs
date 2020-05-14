@@ -137,10 +137,13 @@ namespace Gradebook
         // public string Name
         // {
         //     get;
-        //     private set;
+        //     private set; // this renders Name readonly
         // }
 
         private string name;
         private List<double> grades; // this is a field on the class/type - cannot be implicitly typed
+
+        // readonly string category = "History";
+        public const string CATEGORY = "History";
     }
 }
