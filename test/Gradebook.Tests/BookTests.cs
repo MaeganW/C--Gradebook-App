@@ -32,10 +32,11 @@ namespace Gradebook.Tests
             book.AddGrade(95.0);
 
             var result = book.GetStatistics();
+            char expected = 'C';
 
-            // Assert.Equal()
-            Console.WriteLine($"Average Letter Grade: ", result.AverageLetterGrade);
-            Console.WriteLine($"Average Grade: ", result.AverageGrade);
+            Assert.Equal(expected, result.AverageLetterGrade);
+            // Console.WriteLine($"Average Letter Grade: {result.AverageLetterGrade}");
+            // Console.WriteLine($"Average Grade: {result.AverageGrade}");
         }
     }
 }

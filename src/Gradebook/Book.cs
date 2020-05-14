@@ -55,7 +55,7 @@ namespace Gradebook
         public char GetAverageLetterGrade()
         {
             var average = this.GetAverageGrade();
-            var averageLetterGrade = ' ';
+            char averageLetterGrade = ' ';
             switch (average)
             {
                 case var g when g >= 90:
