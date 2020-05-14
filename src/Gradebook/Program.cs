@@ -16,6 +16,7 @@ namespace Gradebook
             Console.WriteLine($"The highest grade is {statistics.HighestGrade}");
             Console.WriteLine($"The lowest grade is {statistics.LowestGrade}");
             Console.WriteLine($"The average grade is {statistics.AverageGrade:N1}");
+            Console.WriteLine($"The average letter grade is {statistics.AverageLetterGrade}");
 
             // misc practice fns
 

@@ -12,7 +12,10 @@ namespace Gradebook
         }
         public void AddGrade(double grade)
         {
-            grades.Add(grade); // "this" in this.grades is implicit
+            if (grade <= 100 && grade > 0)
+            {
+                grades.Add(grade); // "this" in this.grades is implicit
+            }
         }
 
         public double GetHighestGrade()
@@ -49,12 +52,38 @@ namespace Gradebook
             return average /= this.grades.Count;
         }
 
+        public char GetAverageLetterGrade()
+        {
+            var average = this.GetAverageGrade();
+            var averageLetterGrade = ' ';
+            switch (average)
+            {
+                case var g when g >= 90:
+                    averageLetterGrade = 'A';
+                    break;
+                case var g when g >= 80:
+                    averageLetterGrade = 'B';
+                    break;
+                case var g when g >= 70:
+                    averageLetterGrade = 'C';
+                    break;
+                case var g when g >= 60:
+                    averageLetterGrade = 'D';
+                    break;
+                default:
+                    averageLetterGrade = 'F';
+                    break;
+            }
+            return averageLetterGrade;
+        }
+
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.AverageGrade = this.GetAverageGrade();
             statistics.HighestGrade = this.GetHighestGrade();
             statistics.LowestGrade = this.GetLowestGrade();
+            statistics.AverageLetterGrade = this.GetAverageLetterGrade();
 
             return statistics;
         }
