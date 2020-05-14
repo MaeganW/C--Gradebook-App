@@ -114,7 +114,33 @@ namespace Gradebook
             return statistics;
         }
 
-        public string Name; // made public for test purposes
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (!String.IsNullOrEmpty(value))
+                {
+                    name = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid name field value");
+                }
+            }
+        }
+
+        // also valid getter setter
+        // public string Name
+        // {
+        //     get;
+        //     private set;
+        // }
+
+        private string name;
         private List<double> grades; // this is a field on the class/type - cannot be implicitly typed
     }
 }
