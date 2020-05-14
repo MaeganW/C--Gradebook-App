@@ -4,7 +4,8 @@ using System.Collections.Generic;
 namespace Gradebook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
-    public class Book
+
+    public class Book : NamedObject
     {
         public Book(string name)
         {
@@ -122,24 +123,24 @@ namespace Gradebook
             return statistics;
         }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    name = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Invalid name field value");
-                }
-            }
-        }
+        // public string Name // now inheriting from the NamedObject class
+        // {
+        //     get
+        //     {
+        //         return name;
+        //     }
+        //     set
+        //     {
+        //         if (!String.IsNullOrEmpty(value))
+        //         {
+        //             name = value;
+        //         }
+        //         else
+        //         {
+        //             throw new ArgumentException("Invalid name field value");
+        //         }
+        //     }
+        // }
 
         // also valid getter setter
         // public string Name
@@ -148,7 +149,8 @@ namespace Gradebook
         //     private set; // this renders Name readonly
         // }
 
-        private string name;
+        // private string name; // now inheriting from the NamedObject class
+
         private List<double> grades; // this is a field on the class/type - cannot be implicitly typed
 
         // readonly string category = "History";
