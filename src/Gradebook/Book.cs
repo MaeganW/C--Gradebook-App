@@ -22,6 +22,28 @@ namespace Gradebook
             }
         }
 
+        public void AddGrade(char letter)
+        {
+            switch (letter)
+            {
+                case 'A':
+                    AddGrade(90);
+                    break;
+                case 'B':
+                    AddGrade(80);
+                    break;
+                case 'C':
+                    AddGrade(70);
+                    break;
+                case 'D':
+                    AddGrade(60);
+                    break;
+                default:
+                    AddGrade(50);
+                    break;
+            }
+        }
+
         public double GetHighestGrade()
         {
             var HighestGrade = double.MinValue;
