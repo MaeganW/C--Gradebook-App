@@ -3,8 +3,23 @@ using Xunit;
 
 namespace Gradebook.Tests
 {
+    public delegate string WriteLogDelegate(string logMessage);
     public class TypeTests
     {
+        [Fact]
+        public void WriteLogDelegateCanPointToMethod()
+        {
+            WriteLogDelegate log;
+            log = ReturnMessage;
+            var result = log("Hello!");
+            Assert.Equal("Hello!", result);
+        }
+
+        string ReturnMessage(string message)
+        {
+            return message;
+        }
+
         [Fact]
         public void ValueTypesAlsoPassByValue()
         {
@@ -48,7 +63,7 @@ namespace Gradebook.Tests
 
         private void GetBookSetName(Book book, string name)
         {
-            book = new Book("");
+            book = new Book("Newer Book");
             book.Name = name;
         }
 
