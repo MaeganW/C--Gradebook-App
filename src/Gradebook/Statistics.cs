@@ -8,6 +8,7 @@ namespace Gradebook
         {
             get
             {
+                Console.WriteLine($"Average: {Sum / Count}");
                 return Sum / Count;
             }
         }
@@ -45,8 +46,9 @@ namespace Gradebook
 
         public Statistics()
         {
-            HighestGrade = double.MaxValue;
-            LowestGrade = double.MinValue;
+            HighestGrade = double.MinValue;
+            LowestGrade = double.MaxValue;
+            Console.WriteLine($"Testing the Highest: {HighestGrade}");
             Sum = 0.0;
             Count = 0;
         }
