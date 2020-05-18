@@ -5,13 +5,28 @@ namespace Gradebook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-    public abstract class Book : NamedObject
+    public interface IBook
     {
-        protected Book(string name) : base(name)
+        void AddGrade(double grade);
+        Statistics GetStatistics();
+        string Name { get; }
+        event GradeAddedDelegate GradeAdded;
+    }
+
+    public abstract class Book : NamedObject, IBook
+    {
+        public Book(string name) : base(name)
         {
         }
 
+        public virtual event GradeAddedDelegate GradeAdded;
+
         public abstract void AddGrade(double num);
+
+        public virtual Statistics GetStatistics()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class InMemoryBook : Book
@@ -22,7 +37,7 @@ namespace Gradebook
             Name = name;
         }
 
-        public event GradeAddedDelegate GradeAdded;
+        public override event GradeAddedDelegate GradeAdded;
 
         public override void AddGrade(double grade)
         {
@@ -121,7 +136,7 @@ namespace Gradebook
             return averageLetterGrade;
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.AverageGrade = this.GetAverageGrade();

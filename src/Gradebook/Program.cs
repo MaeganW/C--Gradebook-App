@@ -30,7 +30,7 @@ namespace Gradebook
             // practice.run(new[] { "Maegan", "Diana" });
         }
 
-        private static void EnterGrades(Book book)
+        private static void EnterGrades(IBook book)
         {
             while (true)
             {
