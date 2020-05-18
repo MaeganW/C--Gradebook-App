@@ -50,7 +50,19 @@ namespace Gradebook
 
         public override Statistics GetStatistics()
         {
-            throw new NotImplementedException();
+            var statistics = new Statistics();
+            using (var readStream = File.OpenText($"./{Name}.txt"))
+            {
+                var line = readStream.ReadLine();
+                while (line != null)
+                {
+                    var grade = double.Parse(line);
+                    statistics.Add(grade);
+                    line = readStream.ReadLine();
+                    Console.WriteLine($"Line: {line}");
+                }
+            }
+            return statistics;
         }
     }
 
@@ -102,72 +114,13 @@ namespace Gradebook
             }
         }
 
-        public double GetHighestGrade()
-        {
-            var HighestGrade = double.MinValue;
-            foreach (var grade in this.grades)
-            {
-                // if (grade > HighestGrade)
-                // {
-                //     HighestGrade = grade;
-                // }
-                HighestGrade = Math.Max(grade, HighestGrade);
-            }
-            return HighestGrade;
-        }
-
-        public double GetLowestGrade()
-        {
-            var LowestGrade = double.MaxValue;
-            foreach (var grade in this.grades)
-            {
-                LowestGrade = Math.Min(grade, LowestGrade);
-            }
-            return LowestGrade;
-        }
-
-        public double GetAverageGrade()
-        {
-            var average = 0.0;
-            foreach (var grade in this.grades)
-            {
-                average += grade;
-            }
-            return average /= this.grades.Count;
-        }
-
-        public char GetAverageLetterGrade()
-        {
-            var average = this.GetAverageGrade();
-            char averageLetterGrade = ' ';
-            switch (average)
-            {
-                case var g when g >= 90:
-                    averageLetterGrade = 'A';
-                    break;
-                case var g when g >= 80:
-                    averageLetterGrade = 'B';
-                    break;
-                case var g when g >= 70:
-                    averageLetterGrade = 'C';
-                    break;
-                case var g when g >= 60:
-                    averageLetterGrade = 'D';
-                    break;
-                default:
-                    averageLetterGrade = 'F';
-                    break;
-            }
-            return averageLetterGrade;
-        }
-
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            statistics.AverageGrade = this.GetAverageGrade();
-            statistics.HighestGrade = this.GetHighestGrade();
-            statistics.LowestGrade = this.GetLowestGrade();
-            statistics.AverageLetterGrade = this.GetAverageLetterGrade();
+            foreach (var grade in this.grades)
+            {
+                statistics.Add(grade);
+            }
 
             return statistics;
         }
