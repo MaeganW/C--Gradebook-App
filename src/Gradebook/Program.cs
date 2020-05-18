@@ -11,14 +11,15 @@ namespace Gradebook
             book.GradeAdded += OnGradeAdded;
 
             EnterGrades(book);
+            Console.WriteLine("Entered Grades Complete");
 
-            // var statistics = book.GetStatistics();
+            var statistics = book.GetStatistics();
             Console.WriteLine($"The statistics for the book '{book.Name}' are the following:");
             // Console.WriteLine($"In the {InMemoryBook.CATEGORY} category...");
-            // Console.WriteLine($"The highest grade is {statistics.HighestGrade}");
-            // Console.WriteLine($"The lowest grade is {statistics.LowestGrade}");
-            // Console.WriteLine($"The average grade is {statistics.AverageGrade:N1}");
-            // Console.WriteLine($"The average letter grade is {statistics.AverageLetterGrade}");
+            Console.WriteLine($"The highest grade is {statistics.HighestGrade}");
+            Console.WriteLine($"The lowest grade is {statistics.LowestGrade}");
+            Console.WriteLine($"The average grade is {statistics.AverageGrade:N1}");
+            Console.WriteLine($"The average letter grade is {statistics.AverageLetterGrade}");
 
             // misc practice fns
 
