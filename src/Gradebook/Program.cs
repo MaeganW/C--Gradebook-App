@@ -7,22 +7,18 @@ namespace Gradebook
     {
         static void Main(string[] args)
         {
-            var book = new InMemoryBook("Maegan's Grade Book");
+            var book = new DiskBook("Maegan's Grade Book");
             book.GradeAdded += OnGradeAdded;
 
             EnterGrades(book);
 
-            // book.AddGrade(45.0);
-            // book.AddGrade(90.0);
-            // book.AddGrade(75.5);
-
-            var statistics = book.GetStatistics();
+            // var statistics = book.GetStatistics();
             Console.WriteLine($"The statistics for the book '{book.Name}' are the following:");
-            Console.WriteLine($"In the {InMemoryBook.CATEGORY} category...");
-            Console.WriteLine($"The highest grade is {statistics.HighestGrade}");
-            Console.WriteLine($"The lowest grade is {statistics.LowestGrade}");
-            Console.WriteLine($"The average grade is {statistics.AverageGrade:N1}");
-            Console.WriteLine($"The average letter grade is {statistics.AverageLetterGrade}");
+            // Console.WriteLine($"In the {InMemoryBook.CATEGORY} category...");
+            // Console.WriteLine($"The highest grade is {statistics.HighestGrade}");
+            // Console.WriteLine($"The lowest grade is {statistics.LowestGrade}");
+            // Console.WriteLine($"The average grade is {statistics.AverageGrade:N1}");
+            // Console.WriteLine($"The average letter grade is {statistics.AverageLetterGrade}");
 
             // misc practice fns
 
